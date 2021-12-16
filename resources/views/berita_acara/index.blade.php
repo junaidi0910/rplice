@@ -48,7 +48,13 @@
                                 {{$item->nama_tamu}}
                             </td>
                             <td>
-                                <span class="badge badge-info">{{$item->status}}</span>
+                                @if ($item->status == 'proses')
+                                        <div class="badge badge-primary text-uppercase">{{ $item->status }}</div>
+                                    @elseif($item->status == 'ditolak')
+                                        <div class="badge badge-danger text-uppercase">{{ $item->status }}</div>
+                                    @else
+                                        <div class="badge badge-success text-uppercase">{{ $item->status }}</div>
+                                    @endif
                             </td>
                             <td>
                                 @if ($item->status != 'disetujui' && Auth::user()->role == 'dosen')
@@ -58,7 +64,15 @@
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Ingin Menghapusnya??')">Hapus</button>
                                     </form>
+
                                     @elseif(Auth::user()->role == 'ppa' && $item->status != 'disetujui')
+                                    <a href="{{ route('berita_acara.edit', $item->id) }}" class="btn btn-success">Edit</a>
+                                   <form action="{{ route('berita_acara.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Ingin Menghapusnya??')">Hapus</button>
+                                    </form>
+
                                     <a href="{{ route('berita_acara.validasi', $item->id) }}" class="btn btn-info">Validasi</a>
                                    @endif
                                    @if ($item->status == 'disetujui')

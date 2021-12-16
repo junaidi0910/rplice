@@ -56,8 +56,7 @@ class SuratTugasController extends Controller
         request()->validate([
             'tanggal_pelaksanaan' => ['required'],
             'lokasi_pelaksanaan' => ['required'],
-            'nama_mitra' => ['required'],
-            'penerima_id' => ['required']
+            'nama_mitra' => ['required']
         ]);
         $surat = Surat::create([
             'pengirim_id' => $request->pengirim_id,
@@ -115,8 +114,7 @@ class SuratTugasController extends Controller
         request()->validate([
             'tanggal_pelaksanaan' => ['required'],
             'lokasi_pelaksanaan' => ['required'],
-            'nama_mitra' => ['required'],
-            'penerima_id' => ['required']
+            'nama_mitra' => ['required']
         ]);
         $surat = Surat::find($id);
 
@@ -193,7 +191,7 @@ class SuratTugasController extends Controller
             return redirect()->route('surat_tugas.index')->with('success', 'success Full upload signature');
         }
         // dd(date('Y'));
-    
+
     }
 
     public function download($id)

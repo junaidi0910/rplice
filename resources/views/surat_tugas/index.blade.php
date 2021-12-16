@@ -66,7 +66,7 @@
                                         <div class="badge badge-success text-uppercase">{{ $item->status }}</div>
                                     @endif
                                 </td>
-                               <td class="d-flex">
+                               <td>
                                    {{-- <img src="{{ asset('upload/'. $item->sign) }}" alt=""> --}}
                                    @if ($item->status != 'disetujui' && Auth::user()->role != 'ppa')
                                    <a href="{{ route('surat_tugas.edit', $item->id) }}" class="btn btn-success">Edit</a>
@@ -76,6 +76,12 @@
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Ingin Menghapusnya??')">Hapus</button>
                                     </form>
                                     @elseif(Auth::user()->role == 'ppa' && $item->status != 'disetujui')
+                                    <a href="{{ route('surat_tugas.edit', $item->id) }}" class="btn btn-success">Edit</a>
+                                   <form action="{{ route('surat_tugas.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Ingin Menghapusnya??')">Hapus</button>
+                                    </form>
                                     <a href="{{ route('surat_tugas.show', $item->id) }}" class="btn btn-info">Validasi</a>
                                    @endif
                                    @if ($item->status == 'disetujui')
