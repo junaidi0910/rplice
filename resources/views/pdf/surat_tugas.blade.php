@@ -32,9 +32,9 @@
 				<center>
                     <font size="3"><b>UNIVERSITAS KRISTEN DUTA WACANA</b></font><br>
                     <font size="5"><b>FAKULTAS TEKNOLOGI INFORMASI</b></font><br>
-					<font size="4">SUART TUGAS 2021</font><br>
+					<font size="4">SURAT TUGAS 2021</font><br>
                     <font size="3">NO SURAT : {{ $item->no_surat }}</font><br>
-					<font size="2"><i>Jln roma No. 02 Kode Pos : 68173 Telp./Fax (0331)758005 Yogyakarta</i></font>
+					<font size="2"><i>Jl. Dr. Wahidin Sudirohusodo No.5-25, Kotabaru, Kec. Gondokusuman, Kota Yogyakarta</i></font>
 				</center>
 				</td>
 			</tr>
@@ -58,7 +58,7 @@
 				<td width="564">: -</td>
 			</tr> --}}
 		</table>
-		
+
 		<table width="625">
 			<tr>
 		       <td>

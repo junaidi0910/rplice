@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
 <div class="row">
     <div class="col-lg-3 col-md-6 col-sm-6">
       <div class="card card-stats">
@@ -117,7 +117,7 @@
 
   <div class="card">
     <div class="card-header">
-      Presentase Surat
+      <strong>Total Surat</strong>
     </div>
     <div class="card-body">
       <canvas id="myChart" width="400" height="400"></canvas>
@@ -133,12 +133,12 @@
         type: 'pie',
         data: {
             labels: [
-              'Surat Pribadi', 
+              'Surat Pribadi',
               @if(Auth::user()->role != 'mahasiswa')
-              'Berita Acara', 
+              'Berita Acara',
               @endif
               @if(Auth::user()->role != 'dosen')
-              'Tugas Kelompok', 
+              'Tugas Kelompok',
               @endif
               @if(Auth::user()->role == 'ppa')
               'Surat Daftar Hadir'
@@ -147,15 +147,15 @@
             datasets: [{
                 label: '# of Votes',
                 data: [
-                  json.pribadis, 
+                  json.pribadis,
                   @if(Auth::user()->role != 'mahasiswa')
                   json.acaras ,
                   @endif
                   @if(Auth::user()->role != 'dosen')
-                  json.kelompoks, 
+                  json.kelompoks,
                   @endif
                   @if(Auth::user()->role == 'ppa')
-                  json.hadirs 
+                  json.hadirs
                   @endif
                   ],
                 backgroundColor: [
